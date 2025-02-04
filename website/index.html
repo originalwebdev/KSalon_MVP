@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hair Salon K</title>
+
+  <!-- Example: Using Google Fonts for styling -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans:wght@400;700&display=swap" 
+    rel="stylesheet"
+  >
+
+  <style>
+    /* 
+      ---- Color & Font Choices ----
+      Primary Accent: #8B0000 (Dark Red)
+      Background: #FFFFFF (White)
+      Secondary Text/Icons: #555555
+    */
+
+    /* Global Reset & Base Styling */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #333;
+      background-color: #fff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      color: #8B0000;
+      margin-bottom: 1rem;
+    }
+
+    /* Header / Navbar */
+    header {
+      width: 100%;
+      background-color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      color: #8B0000;
+      font-weight: 600;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      font-weight: 600;
+      color: #333;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #8B0000;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 50vh; /* Reduced from 70vh to make the hero section smaller */
+      background: url('https://cdn.pixabay.com/photo/2017/08/06/09/18/hairdresser-2591363_1280.jpg') 
+        center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0; 
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(139, 0, 0, 0.25); /* Slightly less opacity than before */
+    }
+
+    .hero-text {
+      position: relative;
+      text-align: center;
+      color: #fff;
+      z-index: 1;
+      padding: 1rem 2rem;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem; /* Kept the large text size */
+      margin-bottom: 1rem;
+    }
+
+    .hero-text p {
+      font-size: 1.125rem;
+      font-weight: 300;
+    }
+
+    /* Section Wrappers */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1rem;
+    }
+
+    /* About Section */
+    #about .content-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    #about img {
+      flex: 1 1 400px;
+      max-width: 500px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    #about .about-text {
+      flex: 1 1 400px;
+    }
+
+    #about .about-text p {
+      margin-bottom: 1rem;
+      color: #555;
+    }
+
+    /* Services Section */
+    #services .service-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    #services .service-item {
+      background-color: #fafafa;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+
+    #services .service-item h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    #services .service-item p {
+      margin-bottom: 0.5rem;
+      color: #555;
+    }
+
+    /* Location & Hours Section */
+    #location-hours .info-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    #location-hours .location-map, 
+    #location-hours .hours {
+      flex: 1 1 300px;
+      max-width: 500px;
+    }
+
+    #location-hours .box {
+      background-color: #fafafa;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+
+    #location-hours h3 {
+      margin-bottom: 1rem;
+    }
+
+    #location-hours p {
+      margin-bottom: 0.5rem;
+      color: #555;
+    }
+
+    #location-hours .hours ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.5rem;
+    }
+
+    #location-hours .hours li {
+      margin-bottom: 0.5rem;
+      color: #555;
+    }
+
+    /* Contact Section */
+    #contact p {
+      margin-bottom: 0.5rem;
+      color: #555;
+    }
+
+    #contact a {
+      color: #8B0000;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: #777;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+      #about .content-wrapper {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header / Navbar -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">Hair Salon K</div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#location-hours">Location &amp; Hours</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-text">
+      <h1>Welcome to Hair Salon K</h1>
+      <p>Professional Haircuts &amp; Styles in Seattle</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <h2>About Us</h2>
+    <div class="content-wrapper">
+      <img
+        src="logo_2.png"
+        alt="Salon Interior"
+      />
+      <div class="about-text">
+        <p>
+          Hair Salon K is a cozy, professional salon in Seattle, run by a husband-and-wife team.
+          We’re all about truly understanding your style needs before we start cutting. Our lead
+          stylist makes sure you get exactly what you envision, every time.
+        </p>
+        <p>
+          You’ll enjoy a comfortable, clean environment—and we always shampoo your hair before
+          cutting to ensure a refreshed, confident look. Our focus is on quality, affordability,
+          and personalized care for each of our clients.
+        </p>
+        <p>
+          We also offer a fantastic opportunity for stylists looking to build their clientele:
+          our salon has <strong>five open chairs</strong> for rent. If you’re a talented stylist
+          seeking a welcoming, high-traffic environment in Seattle, we invite you to join our team!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="section">
+    <h2>Our Services</h2>
+    <div class="service-list">
+      <div class="service-item">
+        <h3>Haircut &amp; Style</h3>
+        <p>Men, Women, &amp; Children</p>
+        <p>Starting at $XX</p>
+      </div>
+      <div class="service-item">
+        <h3>Shampoo &amp; Wash</h3>
+        <p>Relaxing Scalp Massage</p>
+        <p>Included with Each Cut</p>
+      </div>
+      <div class="service-item">
+        <h3>Color &amp; Highlights</h3>
+        <p>Cover Grays &amp; Add Dimension</p>
+        <p>Starting at $XYZ</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location & Hours Section -->
+  <section id="location-hours" class="section">
+    <h2>Location &amp; Hours</h2>
+    <div class="info-wrapper">
+      <!-- Location -->
+      <div class="location-map box">
+        <h3>Our Location</h3>
+        <p>10622 16th Ave SW<br/>Seattle, WA 98146</p>
+        <!-- Replace with your own Google Maps Embed or an updated address -->
+        <iframe
+          width="100%"
+          height="250"
+          frameborder="0"
+          style="border:0"
+          loading="lazy"
+          allowfullscreen
+          src="https://www.google.com/maps/embed/v1/place?q=10622+16th+Ave+SW+Seattle+WA&key=YOUR_GOOGLE_MAPS_API_KEY"
+        ></iframe>
+      </div>
+      <!-- Hours -->
+      <div class="hours box">
+        <h3>Hours</h3>
+        <ul>
+          <li><strong>Mon:</strong> 11:00 AM – 8:00 PM</li>
+          <li><strong>Tue:</strong> 11:00 AM – 8:00 PM</li>
+          <li><strong>Wed:</strong> Closed</li>
+          <li><strong>Thu:</strong> 11:00 AM – 8:00 PM</li>
+          <li><strong>Fri:</strong> 11:00 AM – 8:00 PM</li>
+          <li><strong>Sat:</strong> 11:00 AM – 8:00 PM</li>
+          <li><strong>Sun:</strong> 11:00 AM – 6:00 PM</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <p>Phone: <a href="tel:206-397-4663">(206) 397-4663</a></p>
+    <p>Email: <a href="mailto:info@hairsalonk.com">info@hairsalonk.com</a></p>
+    <p>Walk-ins are welcome, but we recommend calling or emailing to book an appointment!</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; <span id="year"></span> Hair Salon K. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JavaScript to update year in footer -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
